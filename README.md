@@ -96,6 +96,12 @@ A verificação de ponta a ponta foi feita em [WordPress Playground](https://wor
 
 Requer PHP 8.1 ou superior e WordPress 6.0 ou superior. Testado no WordPress 7.0.
 
+## Autor
+
+**Ary Ribeiro** — [linkedin.com/in/aryribeiro](https://www.linkedin.com/in/aryribeiro)
+
+Em produção no [Direto Notícias](https://diretonoticias.com.br), portal de Guarapari (ES), desde setembro de 2026. Se você usar, adaptar ou fizer fork, veja como citar em [NOTICE.md](NOTICE.md).
+
 ## Licença
 
 GPL-2.0-or-later. Veja [LICENSE](LICENSE).

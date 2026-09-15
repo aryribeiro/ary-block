@@ -7,7 +7,19 @@ import re
 import zipfile
 
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-PULAR = {"tests", "checkpoints", "CONTRATO.md", ".phpunit.cache"}
+# .git entrou na lista quando a pasta virou repositório: sem ele aqui, o
+# os.walk desceria no histórico inteiro e o empacotaria junto.
+PULAR = {
+    "tests",
+    "checkpoints",
+    "CONTRATO.md",
+    "TESTES.md",
+    ".phpunit.cache",
+    ".git",
+    ".github",
+    ".gitignore",
+    ".gitattributes",
+}
 with open(os.path.join(RAIZ, "ary-block.php"), encoding="utf-8") as f:
     versao = re.search(r"^\s*\*\s*Version:\s*(\S+)", f.read(), re.M).group(1)
 saida = os.path.join(RAIZ, "ary-block.zip")
