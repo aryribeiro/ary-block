@@ -1,0 +1,10 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/",
+  "login": true,
+  "steps": [
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "classic-editor" }, "options": { "activate": true } },
+    { "step": "activatePlugin", "pluginPath": "ary-block/ary-block.php" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; update_option('classic-editor-replace','classic'); update_option('classic-editor-allow-users','disallow'); $id = username_exists('editora') ?: wp_create_user('editora','Senha-Editora-123','editora@example.com'); $u = new WP_User($id); $u->set_role('editor'); $a = username_exists('autor') ?: wp_create_user('autor','Senha-Autor-123','autor@example.com'); $b = new WP_User($a); $b->set_role('author'); echo 'usuarios ok';" }
+  ]
+}

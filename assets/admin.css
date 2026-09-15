@@ -1,0 +1,18 @@
+.ary-block h1 .dashicons { font-size: 28px; width: 28px; height: 28px; vertical-align: -3px; color: #1d4f91; }
+.ary-block__sub { margin-top: -6px; color: #50575e; }
+.ary-block__resumo { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.ary-block__cartao { background: #fff; border: 1px solid #c3c4c7; border-left: 4px solid #1d4f91; padding: 10px 16px; min-width: 150px; }
+.ary-block__cartao strong { display: block; font-size: 20px; line-height: 1.2; }
+.ary-block__cartao span { color: #50575e; font-size: 12px; }
+.ary-block__cartao.is-aviso { border-left-color: #dba617; }
+.ary-block__cartao.is-ativo { border-left-color: #00a32a; }
+.ary-block__isentos { margin: 0 0 16px; }
+.ary-block__tabela { max-width: 760px; margin: 10px 0 18px; }
+.ary-block__tabela .col-formato { width: 36%; }
+.ary-block__tabela .col-bloquear { width: 14%; text-align: center; }
+.ary-block__tabela .col-limite { width: 20%; }
+.ary-block__tabela tr.is-bloqueado td { background: #fcf0f1; }
+.ary-block__tabela tr.is-bloqueado .col-limite input { opacity: .55; }
+.ary-block__fixo { display: inline-block; background: #d63638; color: #fff; border-radius: 3px; padding: 1px 6px; font-size: 11px; margin-left: 6px; }
+.ary-block__inline { display: inline-block; margin: 0 0 24px; }
+.ary-block__registro { max-width: 1000px; margin-top: 8px; }

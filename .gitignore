@@ -1,0 +1,17 @@
+# Pastas de trabalho que não pertencem ao repositório
+/checkpoints/
+/tests/e2e/amostras/
+/tests/e2e/playground.log
+/tests/.phpunit.cache/
+/.phpunit.cache/
+
+# Pacotes gerados
+*.zip
+
+# Contrato interno e registro de testes do portal (não são documentação do plugin)
+/CONTRATO.md
+/TESTES.md
+
+# Sistema
+.DS_Store
+Thumbs.db
