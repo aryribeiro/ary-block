@@ -3,7 +3,7 @@
  * Plugin Name: Ary Block
  * Plugin URI:  https://diretonoticias.com.br
  * Description: Dois em um. (1) Portão de upload: recusa na biblioteca de mídia, com mensagem amigável, os formatos e tamanhos que o administrador definir — administradores e publicações automáticas nunca são bloqueados. (2) Colar imagem: Ctrl+V de uma imagem no editor da notícia grava a imagem na biblioteca, já convertida em JPG leve, e a insere no texto.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Ary Ribeiro
  * Author URI:  https://linkedin.com/in/aryribeiro
  * License:     GPL-2.0-or-later
@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Mexeu em assets/, sobe a versão: o navegador só busca o script novo se o
 // endereço mudar (lição do Painel ADS).
-define( 'ARY_BLOCK_VERSAO', '1.0.2' );
+define( 'ARY_BLOCK_VERSAO', '1.0.3' );
 define( 'ARY_BLOCK_ARQUIVO', __FILE__ );
 define( 'ARY_BLOCK_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ARY_BLOCK_URL', plugin_dir_url( __FILE__ ) );

@@ -4,7 +4,7 @@ Tags: upload, media, images, paste, editor
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL-2.0-or-later
 
 Portão de upload com mensagens amigáveis e colagem de imagem direto no editor, com gravação automática na biblioteca.
@@ -20,6 +20,9 @@ Dois em um, para portais com colunistas voluntários:
 Tela de configuração só para administradores: formatos, limites, largura máxima ao colar, modo "só avisar" e registro dos últimos bloqueios.
 
 == Changelog ==
+
+= 1.0.3 =
+* Correção: a imagem colada com Ctrl+V no editor Visual caía sempre no fim do texto. O plugin de colagem do TinyMCE move o cursor para uma área escondida no fim do texto ao apertar Ctrl+V; agora o Ary Block guarda a posição do cursor antes disso e devolve a imagem exatamente onde o cursor estava (topo, meio ou fim).
 
 = 1.0.2 =
 * Segurança: a rota de colagem passa a exigir a capacidade `upload_files`, e não apenas `edit_posts`. Quem grava na biblioteca de mídia precisa ter permissão de gravar na biblioteca de mídia.

@@ -144,7 +144,38 @@
 	}
 
 	// ---- Editor Visual (TinyMCE) -------------------------------------------
+	//
+	// O CURSOR NO LUGAR (1.0.3). No Ctrl+V de teclado, o plugin de colagem do
+	// TinyMCE 4 cria uma área escondida (#mcepastebin) no FIM do texto, guarda o
+	// cursor e o move para lá; quem devolve o cursor é o próprio handler de
+	// colagem dele — que este plugin interrompe. Sem devolver, a imagem caía
+	// sempre no rodapé do texto (relato do dono, 14/10/2026). Aqui guardamos a
+	// posição ANTES do TinyMCE (keydown com prioridade) e, na colagem, tiramos a
+	// área escondida e pomos o cursor de volta onde ele estava.
+	function teclaDeColar(ev) {
+		return ((ev.ctrlKey || ev.metaKey) && ev.keyCode === 86) || (ev.shiftKey && ev.keyCode === 45);
+	}
+
+	function devolverCursor(editor, rng) {
+		var pb;
+		while ((pb = editor.dom.get('mcepastebin'))) {
+			editor.dom.unbind(pb);
+			editor.dom.remove(pb);
+		}
+		if (rng) {
+			try { editor.selection.setRng(rng); } catch (e) { /* range de um corpo que não existe mais */ }
+		}
+	}
+
 	$(document).on('tinymce-editor-init', function (e, editor) {
+		var cursorAntes = null;
+		editor.on('keydown', function (ev) {
+			cursorAntes = null;
+			if (teclaDeColar(ev)) {
+				try { cursorAntes = editor.selection.getRng().cloneRange(); } catch (err) { cursorAntes = null; }
+			}
+		}, true); // prioridade: roda antes do keydown do plugin de colagem, que cria a área escondida
+
 		editor.on('paste', function (ev) {
 			var alvo = lerClipboard(ev.clipboardData || window.clipboardData);
 			if (!alvo || alvo.tipo === 'nativo') {
@@ -152,6 +183,8 @@
 			}
 			ev.preventDefault();
 			ev.stopImmediatePropagation();
+			devolverCursor(editor, cursorAntes);
+			cursorAntes = null;
 			var id = idMarcador();
 			editor.insertContent('<p id="' + id + '" class="ary-block-enviando">&#9203; ' + cfg.textos.enviando + '</p>');
 			enviar(alvo).then(function (d) {
